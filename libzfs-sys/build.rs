@@ -14,13 +14,8 @@ fn main() {
 
     let out_file = env::current_dir().unwrap().join("src").join("bindings.rs");
 
-    env::set_var("LIBCLANG_PATH", "/opt/llvm-5.0.0/lib64/");
-
-    pkg_config::Config::new()
-        .atleast_version("0.7.12")
-        .probe("libzfs")
-        .unwrap();
     println!("cargo:rustc-link-lib=zpool");
+    println!("cargo:rustc-link-lib=zfs");
 
     // Skip building if bindings already exist.
     // If you want to rebuild, delete the bindings file.
