@@ -17,7 +17,7 @@ fn main() {
     env::set_var("LIBCLANG_PATH", "/opt/llvm-5.0.0/lib64/");
 
     pkg_config::Config::new()
-        .atleast_version("0.7.13")
+        .atleast_version("0.7.12")
         .probe("libzfs")
         .unwrap();
     println!("cargo:rustc-link-lib=zpool");
